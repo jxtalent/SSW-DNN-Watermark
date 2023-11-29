@@ -29,7 +29,7 @@ config
 |-- cifar10
 |   |-- cifar10_clean.yaml        # default parameters to trian clean models on cifar10.
 |   |-- cifar10_watermark.yaml    # default parameters to trian watermarked models on cifar10 (from pretrained).
-|   `-- cifar10_watermark_fs.yaml # default parameters to trian clean models on cifar10 (from scratch).
+|   `-- cifar10_watermark_fs.yaml # default parameters to trian watermarked models on cifar10 (from scratch).
 |-- cifar100
 |   |-- cifar100_clean.yaml
 |   |-- cifar100_watermark.yaml
