@@ -1,0 +1,6 @@
+action: clean
+dataset: cifar100
+batch_size: 128
+arch: resnet18
+epochs: 40
+lr: 0.001

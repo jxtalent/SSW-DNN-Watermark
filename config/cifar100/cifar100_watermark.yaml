@@ -1,0 +1,12 @@
+action: watermark
+dataset: cifar100
+batch_size: 128
+arch: resnet18
+epochs: 1
+lr: 0.001
+key_num: 500
+key_target: 8
+wm_lr: 0.0005
+wm_epoch: 1
+wm_it: 20
+clean_model_path: logs/cifar100/clean/mm-dd-hh-mi-runname/last.pt  # replace this with the path to a trained model

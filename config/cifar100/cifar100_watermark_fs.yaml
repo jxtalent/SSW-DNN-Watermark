@@ -1,0 +1,13 @@
+action: watermark
+dataset: cifar100
+batch_size: 128
+arch: resnet18
+epochs: 40
+lr: 0.001
+key_num: 500
+key_target: 8
+wm_lr: 0.001
+wm_epoch: 2
+wm_it: 20
+clean_model_path: logs/cifar100/clean/mm-dd-hh-mi-runname/last.pt
+from_pretrained: False

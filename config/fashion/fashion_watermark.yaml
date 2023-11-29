@@ -1,0 +1,13 @@
+action: watermark
+dataset: fashion
+batch_size: 128
+arch: vanilla
+epochs: 5
+lr: 0.001
+key_num: 1000
+key_target: 4
+wm_lr: 0.005
+wm_epoch: 5
+wm_it: 50
+clean_model_path: logs/fashion/clean/mm-dd-hh-mi-runname/last.pt  # replace this with the path to a trained model
+from_pretrained: True

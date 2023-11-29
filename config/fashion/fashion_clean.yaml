@@ -1,0 +1,6 @@
+action: clean
+dataset: fashion
+batch_size: 128
+arch: vanilla
+epochs: 50
+lr: 0.001
