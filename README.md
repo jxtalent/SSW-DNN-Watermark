@@ -46,7 +46,7 @@ Generally, you should:
 
 - Step 2: Watermark a model. Replace the `clean_model_path` argument in `config/dataset/dataset_watermark.yaml` or  `config/dataset/dataset_watermark_fs.yaml` with the path to your clean model obtained in Step 1. Then use the running command in `scripts/dataset.sh`.
 
-- Step 3: Attack a watermarked model. Replace the `--victim_path` argument in  `scripts/dataset.sh` with your watermarked model path in Step 2. Then start running.
+- Step 3: Attack a watermarked model. Replace the `--victim_path` argument in  `scripts/dataset.sh` with the path to your watermarked model obtained in Step 2. Then start running.
 
 Once a model is trained, you can use `--action evaluate` to evaluate a specified model by providing `--checkpoint_path /path/to/last.pth`.
 
@@ -55,18 +55,18 @@ Once a model is trained, you can use `--action evaluate` to evaluate a specified
 The directory structure for experimental logs is as follows. They will be automatically created and organized. You need to provide `--runname runname` for each running.
 
 ```
-ogs
+logs
 |-- cifar10  # args.dataset: [cifar10, cifar100, fashion]
 |   |-- clean
 |   |   `-- mm-dd-hh-mi-runname
 |   `-- watermark
 |       `-- mm-dd-hh-mi-runname
 |           |-- attack
-|           |   |-- cross  # args.attack_type
+|           |   |-- cross  # cross structure model extracction.
 |           |   |   `-- runname
 |           |   |-- knockoff
 |           |   |   `-- runname
-|           |   `-- retrain
+|           |   `-- retrain  # hard label extraction
 |           |       `-- runname
 |           `-- trigger
 |               `-- examples
@@ -83,9 +83,9 @@ There are three kinds of models involved in our experiments:
 
 - attacker's model. Each `logs/dataset/watermark/mm-dd-hh-mi-runname/attack/attack_type/runname` directory corresponds to an attacker's model, which is an attacked version of the watermarked model. The `attack_type` can be chosen from `['retrain', 'distill', 'knockoff', 'cross','ftal', 'rtal', 'prune', 'quantization']`. It is decided by the `--attack_type` argument.
 
-After each running, you can get the model checkpoint (best.pt, last.pt), configuration files (conf.json) console printings (log.txt) metrics (history.csv).
+After each running, you can get the model checkpoint (best.pt, last.pt), configuration files (conf.json), console printings (log.txt), and metrics (history.csv) under the corresponding folder.
 
-For watermarking a model, you will also get a trigger set checkpoint which saves the whole trigger set (key.pt). If you use `--save_trigger`argument, you can have trigger set images save as png files.
+For watermarking a model, you will also get a trigger set checkpoint which saves the whole trigger set (key.pt). If you use `--save_trigger` argument, you can have trigger set images save as png files.
 
 # Attack Evaluation
 
